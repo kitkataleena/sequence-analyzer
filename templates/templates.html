@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> DNA Sequence Analyzer </title>
+    <link href="static/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1> DNA Analyzer</h1>
+    <form method="post">
+        <textarea name="sequence" rows="4" cols="50"
+            placeholder="Enter your DNA sequence...">{{ sequence  }}</textarea><br>
+        <input type="submit" value="Analyze">
+    </form>
+
+    {% if data %}
+    <h2>Results</h2>
+    <p><strong>Nucleotide Count:</strong> {{ data.nucleotide_count }}</p>
+    <p><strong>GC content:</strong> {{ data.gc_content }}</p>
+    <p><strong>Reverse Complement:</strong> {{ data.reverse_complement }}</p>
+    <p><strong>Transcription (RNA):</strong> {{ data.transcription }}</p>
+    <p><strong>Translation (Protein Sequence):</strong> {{ data.translation }}</p>
+    {% endif %}
+</body>
+
+</html>
