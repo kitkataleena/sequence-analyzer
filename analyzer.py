@@ -63,4 +63,5 @@ def index():
     return render_template("templates.html", sequence=user_seq, data=data, error=error, filename=filename)
 
 if __name__ == "__main__":
-    app.run()
+    port = int(os.environ.get("PORT", 10000))  # fallback to 10000 for local dev
+    app.run(host='0.0.0.0', port=port)
