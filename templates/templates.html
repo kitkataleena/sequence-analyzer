@@ -4,7 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <title> DNA Sequence Analyzer </title>
-    <link href="static/style.css" rel="stylesheet" />
+    <!-- <link href="static/style.css" rel="stylesheet" /> -->
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        textarea {
+            width: 100%;
+            font-family: monospace;
+        }
+
+        input[type="submit"] {
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+        }
+
+        h2 {
+            margin-top: 2rem;
+        }
+
+        p {
+            line-height: 1.4;
+        }
+    </style>
 </head>
 
 <body>
@@ -12,17 +39,22 @@
     <form method="post">
         <textarea name="sequence" rows="4" cols="50"
             placeholder="Enter your DNA sequence...">{{ sequence  }}</textarea><br>
+        <p><strong>OR</strong></p>
+        <input type="file" name="file" accept=".fasta"><br><br>
         <input type="submit" value="Analyze">
     </form>
 
+    {% if error %}
+        <p style="color:red;"><strong>Error: </strong>{{ error }}</p>
+    {% endif %}
+
     {% if data %}
-    <h2>Results</h2>
-    <p><strong>Nucleotide Count:</strong> {{ data.nucleotide_count }}</p>
-    <p><strong>GC content:</strong> {{ data.gc_content }}</p>
-    <p><strong>Reverse Complement:</strong> {{ data.reverse_complement }}</p>
-    <p><strong>Transcription (RNA):</strong> {{ data.transcription }}</p>
-    <p><strong>Translation (Protein Sequence):</strong> {{ data.translation }}</p>
+        <h2>Results</h2>
+        <p><strong>Nucleotide Count:</strong> {{ data.nucleotide_count }}</p>
+        <p><strong>GC content:</strong> {{ data.gc_content }}</p>
+        <p><strong>Reverse Complement:</strong> {{ data.reverse_complement }}</p>
+        <p><strong>Transcription (RNA):</strong> {{ data.transcription }}</p>
+        <p><strong>Translation (Protein Sequence):</strong> {{ data.translation }}</p>
     {% endif %}
 </body>
-
 </html>
