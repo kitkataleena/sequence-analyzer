@@ -1,0 +1,43 @@
+body {
+    font-family: sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+textarea {
+    width: 100%;
+    font-family: monospace;
+}
+
+input[type="submit"] {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+}
+
+h2 {
+    margin-top: 2rem;
+}
+
+p {
+    line-height: 1.4;
+    max-width: 80%;
+}
+
+.scroll-box {
+    overflow-x: auto;
+    white-space: nowrap;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f9f9f9;
+    font-family: monospace;
+    max-width: 100%;
+}
+
+mark {
+    background-color: yellow;
+    color: black;
+    padding: 0 2px;
+    border-radius: 2px;
+}

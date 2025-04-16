@@ -32,6 +32,7 @@ def index():
     user_seq = ""
     data = None
     error = None
+    filename = None
 
     if request.method == "POST":
         try:
@@ -59,7 +60,7 @@ def index():
         except ValueError as e:
             error = str(e)
 
-    return render_template("templates.html", sequence=user_seq, data=data, error=error)
+    return render_template("templates.html", sequence=user_seq, data=data, error=error, filename=filename)
 
 if __name__ == "__main__":
     app.run()
